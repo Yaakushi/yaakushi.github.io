@@ -1,1 +1,21 @@
-Eric usa goto
+<div>Eric usa <div id="lol">goto</div></div>
+<script>
+i = 0;
+setInterval(function() {
+	text = ""
+	if(i == 0) {
+		text = "Goto"
+	} else if (i == 1) {
+		text = "gOto"
+	} else if (i == 2) {
+		text = "goTo"
+	} else if (i == 3) {
+		text = "gotO"
+	} else {
+		text = "goto"
+		i = -1;
+	}
+	i++;
+	document.getElementById("lol").innerHTML = text;
+}, 130);
+</script>
