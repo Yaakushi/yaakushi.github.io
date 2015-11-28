@@ -1,41 +1,79 @@
+<!--
+	 .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.                                         
+	 | .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |                                        
+	 | |      __      | || |     ______   | || |  _________   | || |    _______   | || |    _______   | || |     ____     | |                                        
+	 | |     /  \     | || |   .' ___  |  | || | |_   ___  |  | || |   /  ___  |  | || |   /  ___  |  | || |   .'    `.   | |                                        
+	 | |    / /\ \    | || |  / .'   \_|  | || |   | |_  \_|  | || |  |  (__ \_|  | || |  |  (__ \_|  | || |  /  .--.  \  | |                                        
+	 | |   / ____ \   | || |  | |         | || |   |  _|  _   | || |   '.___`-.   | || |   '.___`-.   | || |  | |    | |  | |                                        
+	 | | _/ /    \ \_ | || |  \ `.___.'\  | || |  _| |___/ |  | || |  |`\____) |  | || |  |`\____) |  | || |  \  `--'  /  | |                                        
+	 | ||____|  |____|| || |   `._____.'  | || | |_________|  | || |  |_______.'  | || |  |_______.'  | || |   `.____.'   | |                                        
+	 | |              | || |              | || |              | || |              | || |              | || |              | |                                        
+	 | '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |                                        
+	  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'                                         
+	   .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
+	   | .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+	   | |  _______     | || |  _________   | || |    _______   | || |  _________   | || |  _______     | || |     _____    | || |  _________   | || |     ____     | |
+	   | | |_   __ \    | || | |_   ___  |  | || |   /  ___  |  | || | |  _   _  |  | || | |_   __ \    | || |    |_   _|   | || | |  _   _  |  | || |   .'    `.   | |
+	   | |   | |__) |   | || |   | |_  \_|  | || |  |  (__ \_|  | || | |_/ | | \_|  | || |   | |__) |   | || |      | |     | || | |_/ | | \_|  | || |  /  .--.  \  | |
+	   | |   |  __ /    | || |   |  _|  _   | || |   '.___`-.   | || |     | |      | || |   |  __ /    | || |      | |     | || |     | |      | || |  | |    | |  | |
+	   | |  _| |  \ \_  | || |  _| |___/ |  | || |  |`\____) |  | || |    _| |_     | || |  _| |  \ \_  | || |     _| |_    | || |    _| |_     | || |  \  `--'  /  | |
+	   | | |____| |___| | || | |_________|  | || |  |_______.'  | || |   |_____|    | || | |____| |___| | || |    |_____|   | || |   |_____|    | || |   `.____.'   | |
+	   | |              | || |              | || |              | || |              | || |              | || |              | || |              | || |              | |
+	   | '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+	    '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+-->
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Eric attacks!</title>
+	<link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="style-eric.css">
+	<meta charset="UTF-8">
 </head>
 <body>
 	<div class="wrapper">
-		<div class="top">
-			<script>
-				for(i = 0; i < 2; i++) {
-					for(j = 0; j < 6; j++) {
-						document.write('<div class="battle-square"></div>');
-					}
-					document.write("<br>");
+		<div class="floater">
+			<img src="anndog.gif" id="anndog">
+			<img src="ericgoto.gif" id="ericgoto">
+		</div>
+		<script>
+			for(i = 0; i < 2; i++) {
+				document.write("<div class='line'>");
+				for(j = 0; j < 6; j++) {
+					//document.write('<div class="battle-square"></div>');
+					document.write('<div class="battle-square');
+					if(i == 0) document.write(' battle-square-top');
+					else document.write(' battle-square-bot');
+					if(j == 0) document.write(' battle-square-left');
+					else if(j == 5) document.write(' battle-square-right');
+					document.write('"></div>');
 				}
-			</script>
+				document.write("</div>");
+				//document.write("<br>");
+			}
+		</script>
+		<div class="textbox">
+			* Eric usou <span id="goto">goto</span>!<br>
+			<span class="easter-egg">* This filled you with determination</span>
+		</div>
+		<div class="stats">
+			<div class="left">ERIC LV 1</div>
+			<div class="center">HP <div id="healthbar-background"><div id="healthbar-value"></div></div> 9/12</div>
 		</div>
 	</div>
 </body>
 </html>
 <script>
 i = 0;
+numOfTexts = 9;
+numOfColors = 8;
+texts = ["goto", "%G#oto", "G%O#to", "GO%T#o", "GOT%O#", "%g#OTO", "g%o#TO", "go%t#O", "got%o#", "%#"];
+colors = ["red", "blue", "purple", "green", "yellow", "cyan", "fuchsia", "navy"]
 setInterval(function() {
 	text = "";
-	if(i == 0) {
-		text = "<font color='red'>G</font>oto";
-	} else if (i == 1) {
-		text = "g<font color='red'>O</font>to";
-	} else if (i == 2) {
-		text = "go<font color='red'>T</font>o";
-	} else if (i == 3) {
-		text = "got<font color='red'>O</font>";
-	} else {
-		text = "goto";
-		i = -1;
-	}
-	i++;
-	document.getElementById("lol").innerHTML = text;
-}, 130);
+	randomcolor = Math.floor(Math.random() * (numOfColors));
+	text = texts[i++].replace("%", "<font color='" + colors[randomcolor] + "'>").replace("#", "</font>");
+	if(i >= numOfTexts) i = 1;
+	document.getElementById("goto").innerHTML = text;
+}, 150);
 </script>
