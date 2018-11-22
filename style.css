@@ -1,9 +1,11 @@
-background: linear-gradient(271deg, #4bd3ff, #ff8585, #8598ff);
-background-size: 600% 600%;
+body {
+    background: linear-gradient(271deg, #4bd3ff, #ff8585, #8598ff);
+    background-size: 600% 600%;
 
--webkit-animation: BackgroundTop 35s ease infinite;
--moz-animation: BackgroundTop 35s ease infinite;
-animation: BackgroundTop 35s ease infinite;
+    -webkit-animation: BackgroundTop 35s ease infinite;
+    -moz-animation: BackgroundTop 35s ease infinite;
+    animation: BackgroundTop 35s ease infinite;
+}
 
 @-webkit-keyframes BackgroundTop {
     0%{background-position:0% 50%}
@@ -28,4 +30,5 @@ h1 {
     line-height: 100vh;
     text-align: center;
     vertical-align: middle;
+    color: #fff;
 }
